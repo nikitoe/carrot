@@ -52,7 +52,6 @@ function stopGame () {
 function finishGame (win) {
     started = false;
     score = 0;
-    stopGameTimer();
     hideGameButton();
     showPopUpWithText(win ? 'YOU WON' : 'YOU LOST');
 }
@@ -61,11 +60,13 @@ function showStopButton () {
     const icon = gameBtn.querySelector('.fas');
     icon.classList.add('fa-stop');
     icon.classList.remove('fa-play');
+    gameBtn.style.visibility='visible';
 };
 
 function hideGameButton () {
     gameBtn.style.visibility='hidden';
 };
+
 
 function showTimerAndScore () {
     gameTimer.style.visibility = 'visible';
@@ -125,6 +126,7 @@ function onFieldClick(event) {
         score++;
         updateScoreBoard();
         if (score === CARROT_COUNT){
+            stopGameTimer();
             finishGame(true);
         }
     }else if (target.matches('.bug')){
