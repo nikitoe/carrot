@@ -6,17 +6,17 @@ import * as sound from './sound.js'
 // Builder Pattern
 // 가독성이 좋게 만들어 줌
 export default class GameBuilder {
-    gameDuration(duration) {
+    withGameDuration(duration) {
         this.gameDuration = duration;
         return this;
     }
 
-    carrotCount(num) {
+    withCarrotCount(num) {
         this.carrotCount = num;
         return this;
     }
 
-    bugCount (num) {
+    withBugCount (num) {
         this.bugCount = num;
         return this;
     }
